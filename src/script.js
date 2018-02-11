@@ -13,7 +13,7 @@ var game = {
     return this.words[randomNum];
   },
 
-  wordInUse: '',
+  wordInUse: [],
 
   displayWordLength: function() {
     var wordLength = this.getWord().length;
@@ -35,7 +35,15 @@ var game = {
 game.displayWordLength();
 
 document.onkeyup = function() {
-  var letter = key.event;
+  var letter = event.key;
 
+  var checkLetter = game.wordInUse.map((a,index) => {
+    if (a === letter) {
+      var parent = document.getElementById('word-container');
+      var children = parent.childNodes;
+      var getP = children[index+1].firstChild;
+      getP.classList.remove('letter-visibility');
+    }
+  })
 
 }
