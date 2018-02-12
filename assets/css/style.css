@@ -1,12 +1,16 @@
 .letter-content {
+  border-bottom: solid 2px gray;
   font-size: 22px;
   width: 35px;
   height: 35px;
   margin-right: 15px;
-  border-bottom: solid 2px gray;
   text-align: center;
 }
 
-.letter-visibility {
-  display: none;
+.correct-guess {
+  font-size: 16px;
+  width: 26px;
+  height: 26px;
+  margin-right: 4px;
+  text-align: center;
 }
