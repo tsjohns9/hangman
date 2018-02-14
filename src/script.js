@@ -12,6 +12,8 @@ window.onload = function() {
     guessedLetter: [],
     triesLeft: 6,
     gameIsOver: false,
+    wins: 0,
+    losses: 0,
 
     //gets random word. Stores result in an array of letters
     getWord: function() {
@@ -21,9 +23,9 @@ window.onload = function() {
       return this.words[randomNum];
     },
 
+    //Creates a new div and p element to display the letters of the selected word
     displayWordLength: function() {
       var wordLength = this.getWord().length;
-      //Creates a new div and p element to display the letters of the selected word
       for (i = 0; i < wordLength; i++) {
         var newDiv = document.createElement('div');
         var newP = document.createElement('p');
@@ -42,7 +44,7 @@ window.onload = function() {
     },
 
     //removes all child nodes and sets values back to default.
-    restart: function() {
+    newGame: function() {
       document.getElementById('word-container').innerHTML = '';
       document.getElementById('correct-letters').innerHTML = '';
       document.getElementById('game-is-over').innerHTML = '';
@@ -59,7 +61,9 @@ window.onload = function() {
       var totalLetters = this.wordInUse.length;
 
       if (!this.gameIsOver && revealedLetters === totalLetters) {
-        document.getElementById('game-is-over').textContent = 'You Win!'
+        game.wins++;
+        document.getElementById('win-loss-counter').firstChild.textContent = `Wins: ${game.wins}`;
+        document.getElementById('tries-left').innerHTML = 'You Win!';
         this.gameIsOver = true;
       }
     },
@@ -74,13 +78,15 @@ window.onload = function() {
           console.log(game.triesLeft);
         } else {
           this.gameIsOver = true;
+          game.losses++;
+          document.getElementById('win-loss-counter').lastChild.textContent = `Losses: ${game.losses}`;
           document.getElementById('tries-left').innerHTML = 'Game Over';
         }
       }
     }
   }
 
-  document.getElementById('restart').onclick = function() { game.restart() }
+  document.getElementById('new-game').onclick = function() { game.newGame() }
   game.displayWordLength();
 
   document.onkeypress = function() {
