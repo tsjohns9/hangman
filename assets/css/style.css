@@ -8,16 +8,23 @@
   src: url('../fonts/Charlemagne/Charlemagne.ttf');
 }
 
-p,.btn {
-  font-family: Charlemagne;
+* {
+  box-sizing: border-box;
+  color: black;
+  font-family: Charlemagne, "Times New Roman", Times, serif;
+  letter-spacing: 2px;
 }
 
-strong {
-  font-size: 20px;
+html,body {
+  height: 100%;
+}
+
+body {
+  background: url('../images/triforce2.jpg') no-repeat fixed center;
 }
 
 .letter-content {
-  border-bottom: solid 2px gray;
+  border-bottom: solid 2px #303030;
   font-size: 22px;
   width: 35px;
   height: 35px;
@@ -34,11 +41,17 @@ strong {
   height: 26px;
   margin-right: 4px;
   text-align: center;
-  font-family: Charlemagne;
 }
 
 .display-4 {
-  font-family: Hylia;
+  font-family: Hylia, "Times New Roman", Times, serif;
+}
+
+.vertical-center {
+  min-height: 100%;
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
 }
 
 #tries-left {
@@ -48,4 +61,8 @@ strong {
 
 #win-loss-counter {
   font-size: 18px;
+}
+
+#main-content {
+  background-color: rgba(255, 255, 255, 0.7);
 }

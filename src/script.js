@@ -52,7 +52,7 @@ window.onload = function() {
       document.getElementById('word-container').innerHTML = '';
       document.getElementById('correct-letters').innerHTML = '';
       document.getElementById('game-is-over').innerHTML = '';
-      document.getElementById('tries-left').innerHTML = `<p class="d-inline">Tries Left: </p><p class="d-inline">6</p>`;
+      document.getElementById('tries-left').innerHTML = `<p>Tries Left </p><p>6</p>`;
       this.displayWordLength();
       this.guessedLetter = [];
       this.triesLeft = 6;
@@ -65,27 +65,27 @@ window.onload = function() {
       var totalLetters = this.wordInUse.length;
 
       if (revealedLetters === totalLetters) {
-        // game.sounds[0].win.play();
+        var children = document.getElementById('win-loss-counter').childNodes;
         this.gameIsOver = true;
         game.wins++;
-        document.getElementById('win-loss-counter').firstChild.textContent = `Wins: ${game.wins}`;
+        children[1].textContent = `Wins: ${game.wins}`;
         document.getElementById('tries-left').innerHTML = 'You Win!';
         setTimeout(this.newGame.bind(this), 1000);
-
       }
     },
 
     checkLoss: function(letter) {
+      var lossTrackerChildren = document.getElementById('win-loss-counter').childNodes;
       if (!game.wordInUse.includes(letter)) {
-        var children = document.getElementById('tries-left').childNodes;
+        var triesLeftContent = document.getElementById('tries-left');
         this.triesLeft--;
 
         if (game.triesLeft > 0) {
-          children[1].textContent = this.triesLeft;
+          triesLeftContent.innerHTML = `<p>Tries Left </p><p>${game.triesLeft}</p>`;
         } else {
           this.gameIsOver = true;
           game.losses++;
-          document.getElementById('win-loss-counter').lastChild.textContent = `Losses: ${game.losses}`;
+          lossTrackerChildren[3].textContent = `Losses: ${game.losses}`;
           document.getElementById('tries-left').innerHTML = 'Game Over';
           setTimeout(this.newGame.bind(this), 2000);
         }
