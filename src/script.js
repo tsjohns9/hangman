@@ -8,12 +8,16 @@ window.onload = function() {
       'Hookshot','Light Arrows','Biggorn Sword','Triforce'
     ],
 
+    // sounds: [
+    //   {win: new Audio('../assets/sounds/OOT_Get_SmallItem2.wav')}
+    // ],
+
     wordInUse: [],
     guessedLetter: [],
     triesLeft: 6,
-    gameIsOver: false,
     wins: 0,
     losses: 0,
+    gameIsOver: false,
 
     //gets random word. Stores result in an array of letters
     getWord: function() {
@@ -51,8 +55,8 @@ window.onload = function() {
       document.getElementById('tries-left').innerHTML = `<p class="d-inline">Tries Left: </p><p class="d-inline">6</p>`;
       this.displayWordLength();
       this.guessedLetter = [];
-      this.gameIsOver = false;
       this.triesLeft = 6;
+      this.gameIsOver = false;
     },
 
     //Revealed letters have a class of border-0. Checks for a win by seeing if all letters have a class of border-0
@@ -60,11 +64,14 @@ window.onload = function() {
       var revealedLetters = document.getElementsByClassName('border-0').length;
       var totalLetters = this.wordInUse.length;
 
-      if (!this.gameIsOver && revealedLetters === totalLetters) {
+      if (revealedLetters === totalLetters) {
+        // game.sounds[0].win.play();
+        this.gameIsOver = true;
         game.wins++;
         document.getElementById('win-loss-counter').firstChild.textContent = `Wins: ${game.wins}`;
         document.getElementById('tries-left').innerHTML = 'You Win!';
-        this.gameIsOver = true;
+        setTimeout(this.newGame.bind(this), 1000);
+
       }
     },
 
@@ -75,12 +82,12 @@ window.onload = function() {
 
         if (game.triesLeft > 0) {
           children[1].textContent = this.triesLeft;
-          console.log(game.triesLeft);
         } else {
           this.gameIsOver = true;
           game.losses++;
           document.getElementById('win-loss-counter').lastChild.textContent = `Losses: ${game.losses}`;
           document.getElementById('tries-left').innerHTML = 'Game Over';
+          setTimeout(this.newGame.bind(this), 2000);
         }
       }
     }

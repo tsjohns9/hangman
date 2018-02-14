@@ -1,3 +1,21 @@
+@font-face {
+  font-family: Hylia;
+  src: url('../fonts/HyliaSerif/HyliaSerifBeta-Regular.otf');
+}
+
+@font-face {
+  font-family: Charlemagne;
+  src: url('../fonts/Charlemagne/Charlemagne.ttf');
+}
+
+p,.btn {
+  font-family: Charlemagne;
+}
+
+strong {
+  font-size: 20px;
+}
+
 .letter-content {
   border-bottom: solid 2px gray;
   font-size: 22px;
@@ -16,4 +34,18 @@
   height: 26px;
   margin-right: 4px;
   text-align: center;
+  font-family: Charlemagne;
+}
+
+.display-4 {
+  font-family: Hylia;
+}
+
+#tries-left {
+  font-size: 20px;
+  font-weight: 600;
+}
+
+#win-loss-counter {
+  font-size: 18px;
 }
