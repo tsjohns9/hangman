@@ -43,7 +43,8 @@ body {
   text-align: center;
 }
 
-.display-4 {
+.display-5 {
+  font-size: 30px;
   font-family: Hylia, "Times New Roman", Times, serif;
 }
 
@@ -65,4 +66,10 @@ body {
 
 #main-content {
   background-color: rgba(255, 255, 255, 0.7);
+}
+
+@media(min-width: 576px) {
+  .display-5 {
+    font-size: 4.2rem;
+  }
 }
