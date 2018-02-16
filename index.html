@@ -4,27 +4,27 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <meta http-equiv="X-UA-Compatible" content="ie=edge">
-  <link rel="stylesheet" href="./assets/css/style.css">
   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+  <link rel="stylesheet" href="./assets/css/style.css">
   <title>Document</title>
 </head>
 <body>
 
   <div class="vertical-center">
-    <div id="main-content" class="p-5 container border border-light rounded">
-      <h1 class="mb-5 text-center display-5">The Legend of Zelda, Hangman</h1>
-      <div class="mb-5 d-flex justify-content-center flex-row" id="word-container"></div>
+    <div id="main-content" class="px-2 py-4 p-sm-5 container border border-light rounded">
+      <h1 class="mb-5 text-center main-header">The Legend of Zelda, Hangman</h1>
+      <div class="mb-5 d-flex justify-content-center align-items-end flex-row" id="word-container"></div>
       <div class="mb-4 d-flex justify-content-center flex-row" id="correct-letters"></div>
       <div id="tries-left" class="text-center">
         <p>Tries Left </p>
         <p>6</p>
       </div>
       <div id="game-is-over"></div>
-      <div id="win-loss-counter" class="row mx-auto mb-3 d-flex justify-content-between">
+      <div id="win-loss-counter" class="row mx-auto mb-5">
         <div class="col-sm-6 mb-3 mb-sm-0 text-center">Wins: 0 </div>
         <div class="col-sm-6 text-center">Losses: 0</div>
       </div>
-      <div class="text-center"><input id="new-game" class="btn btn-success" type="button" value="New Game"></div>
+      <div class="text-center"><input id="new-game" class="btn btn-success btn-lg" type="button" value="New Game"></div>
     </div>
   </div>
 

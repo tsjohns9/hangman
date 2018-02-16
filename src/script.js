@@ -1,5 +1,9 @@
 window.onload = function() {
-
+  var wordContainer = document.getElementById('word-container');
+  var correctLetters = document.getElementById('correct-letters');
+  var gameIsOver = document.getElementById('game-is-over');
+  var triesLeft = document.getElementById('tries-left');
+  
   var game = {
     words: [ 'Link','Zelda','Ganondorf','Navi','Epona','Great Deku Tree','Saria',
       'Majoras Mask','Dark Link','Impa','Sheik','Tingle','Great Fairy','Postman','Skullkid','Hyrule',
@@ -34,6 +38,7 @@ window.onload = function() {
         var newDiv = document.createElement('div');
         var newP = document.createElement('p');
         newP.textContent = this.wordInUse[i];
+        newP.classList.add('mb-0');
         newDiv.appendChild(newP);
 
         if (newP.textContent === ' ') {

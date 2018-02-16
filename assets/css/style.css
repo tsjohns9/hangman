@@ -7,7 +7,9 @@
   font-family: Charlemagne;
   src: url('../fonts/Charlemagne/Charlemagne.ttf');
 }
-
+html {
+  font-size: 12px;
+}
 * {
   box-sizing: border-box;
   color: black;
@@ -23,11 +25,13 @@ body {
   background: url('../images/triforce2.jpg') no-repeat fixed center;
 }
 
+#word-container {
+  height: 60px;
+}
+
 .letter-content {
   border-bottom: solid 2px #303030;
-  font-size: 22px;
   width: 35px;
-  height: 35px;
   margin-right: 5px;
   text-align: center;
 }
@@ -43,8 +47,7 @@ body {
   text-align: center;
 }
 
-.display-5 {
-  font-size: 30px;
+.main-header {
   font-family: Hylia, "Times New Roman", Times, serif;
 }
 
@@ -56,20 +59,50 @@ body {
 }
 
 #tries-left {
-  font-size: 20px;
+  font-size: 16px;
   font-weight: 600;
 }
 
 #win-loss-counter {
-  font-size: 18px;
+  font-size: 16px;
 }
 
 #main-content {
-  background-color: rgba(255, 255, 255, 0.7);
+  background-color: rgba(255, 255, 255, 0.8);
+}
+
+@media(min-width: 400px) {
+  .main-header {
+    font-size: 3rem;
+  }
 }
 
 @media(min-width: 576px) {
-  .display-5 {
-    font-size: 4.2rem;
+  .letter-content {
+    font-size: 26px;
+    font-weight: 600;
+  }
+
+  #correct-letters {
+    font-size: 18px;
+  }
+  #tries-left {
+    font-size: 20px;
+  }
+
+  #win-loss-counter {
+    font-size: 20px;
+  }
+}
+
+@media(min-width: 768px) {
+  .main-header {
+    font-size: 4rem;
+  }
+}
+
+@media (min-width: 992px) {
+  .container {
+    width: 960px;
   }
 }
