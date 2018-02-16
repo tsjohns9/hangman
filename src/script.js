@@ -70,7 +70,7 @@ window.onload = function() {
         game.wins++;
         winLossCounterChildren[1].textContent = `Wins: ${game.wins}`;
         triesLeftDiv.innerHTML = `<p>You Win!</p>`;
-        setTimeout(this.newGame.bind(this), 1000);
+        setTimeout(this.newGame.bind(this), 2000);
       }
       
       if (!game.wordInUse.includes(letter)) {
