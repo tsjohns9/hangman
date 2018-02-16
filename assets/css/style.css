@@ -7,14 +7,16 @@
   font-family: Charlemagne;
   src: url('../fonts/Charlemagne/Charlemagne.ttf');
 }
-html {
-  font-size: 12px;
-}
+
 * {
   box-sizing: border-box;
   color: black;
   font-family: Charlemagne, "Times New Roman", Times, serif;
   letter-spacing: 2px;
+}
+
+html {
+  font-size: 12px;
 }
 
 html,body {
@@ -25,15 +27,30 @@ body {
   background: url('../images/triforce2.jpg') no-repeat fixed center;
 }
 
+.vertical-center {
+  align-items: center;
+  min-height: 100%;
+  min-height: 100vh;
+  display: flex;
+}
+
+#main-content {
+  background-color: rgba(255, 255, 255, 0.8);
+}
+
+#main-content h1 {
+  font-family: Hylia, "Times New Roman", Times, serif;
+}
+
 #word-container {
   height: 60px;
 }
 
 .letter-content {
   border-bottom: solid 2px #303030;
-  width: 35px;
   margin-right: 5px;
   text-align: center;
+  width: 35px;
 }
 
 .border-0 {
@@ -41,21 +58,10 @@ body {
 }
 
 .correct-guess {
-  width: 26px;
   height: 26px;
   margin-right: 4px;
   text-align: center;
-}
-
-.main-header {
-  font-family: Hylia, "Times New Roman", Times, serif;
-}
-
-.vertical-center {
-  min-height: 100%;
-  min-height: 100vh;
-  display: flex;
-  align-items: center;
+  width: 26px;
 }
 
 #tries-left {
@@ -67,13 +73,15 @@ body {
   font-size: 16px;
 }
 
-#main-content {
-  background-color: rgba(255, 255, 255, 0.8);
-}
+/* media queries */
 
 @media(min-width: 400px) {
-  .main-header {
+  #main-content h1 {
     font-size: 3rem;
+  }
+  
+  .letter-content {
+    font-size: 20px;
   }
 }
 
@@ -86,6 +94,7 @@ body {
   #correct-letters {
     font-size: 18px;
   }
+
   #tries-left {
     font-size: 20px;
   }
@@ -96,7 +105,7 @@ body {
 }
 
 @media(min-width: 768px) {
-  .main-header {
+  #main-content h1 {
     font-size: 4rem;
   }
 }
