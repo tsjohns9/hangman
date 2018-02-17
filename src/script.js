@@ -69,7 +69,7 @@ window.onload = function() {
         this.gameIsOver = true;
         game.wins++;
         winLossCounterChildren[1].textContent = `Wins: ${game.wins}`;
-        triesLeftDiv.innerHTML = `<p>You Win!</p>`;
+        triesLeftDiv.innerHTML = `<p class="alert alert-success w-50 mx-auto" role="alert">You Win!</p>`;
         setTimeout(this.newGame.bind(this), 2000);
       }
       
@@ -81,7 +81,7 @@ window.onload = function() {
           this.gameIsOver = true;
           game.losses++;
           winLossCounterChildren[3].textContent = `Losses: ${game.losses}`;
-          triesLeftDiv.innerHTML = `<p>Game Over</p>`;
+          triesLeftDiv.innerHTML = `<p class="alert alert-danger w-50 mx-auto">Game Over</p>`;
           setTimeout(this.newGame.bind(this), 2000);
         }
       }
