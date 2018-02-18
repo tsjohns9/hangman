@@ -3,6 +3,11 @@ window.onload = function() {
   var correctLettersDiv = document.getElementById('correct-letters');
   var triesLeftDiv = document.getElementById('tries-left');
 
+  var audioElementWin = document.createElement('audio');
+  var audioElementLoss = document.createElement('audio');
+  audioElementWin.setAttribute('src', './assets/sounds/OOT_Get_SmallItem2.mp3');
+  audioElementLoss.setAttribute('src', './assets/sounds/OOT_AdultLink_Scream2.wav');
+
   var game = {
     words: [ 'Link','Zelda','Ganondorf','Navi','Epona','Great Deku Tree','Saria',
       'Majoras Mask','Dark Link','Impa','Sheik','Tingle','Great Fairy','Postman','Skullkid','Hyrule',
@@ -70,6 +75,7 @@ window.onload = function() {
         game.wins++;
         winLossCounterChildren[1].textContent = `Wins: ${game.wins}`;
         triesLeftDiv.innerHTML = `<p class="alert alert-success w-50 mx-auto" role="alert">You Win!</p>`;
+        audioElementWin.play();
         setTimeout(this.newGame.bind(this), 2000);
       }
       
@@ -82,6 +88,7 @@ window.onload = function() {
           game.losses++;
           winLossCounterChildren[3].textContent = `Losses: ${game.losses}`;
           triesLeftDiv.innerHTML = `<p class="alert alert-danger w-50 mx-auto">Game Over</p>`;
+          audioElementLoss.play();
           setTimeout(this.newGame.bind(this), 2000);
         }
       }
