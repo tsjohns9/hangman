@@ -16,16 +16,29 @@ window.onload = function() {
       'Hookshot','Light Arrows','Biggorn Sword','Triforce'
     ],
 
+    //will set our current word
     wordInUse: [],
+
+    //will store our correctly guessed letters
     guessedLetter: [],
+
+    //displays how many guesses we have left
     triesLeft: 6,
+
+    //tracks wins/losses
     wins: 0,
     losses: 0,
+
+    //sets to true when the game is over
     gameIsOver: false,
 
     //gets random word. Stores result in an array of letters
     getWord: function() {
+
+      //random number is based off of the length of this.words.length
       var randomNum = Math.floor(this.words.length * Math.random());
+
+      //sets our current word
       this.wordInUse = this.words[randomNum].toUpperCase().split('');
       console.log(this.wordInUse);
       return this.words[randomNum];
@@ -34,21 +47,40 @@ window.onload = function() {
     //Creates a new div and p element to display the letters of the selected word
     displayWordLength: function() {
       var wordLength = this.getWord().length;
+
+      //loops through each letter
       for (i = 0; i < wordLength; i++) {
+
+        //creates a new div tag
         var newDiv = document.createElement('div');
+
+        //creates a new p tag
         var newP = document.createElement('p');
+
+        //sets p content to the current letter, which is i
         newP.textContent = this.wordInUse[i];
+
+        //adds a class of mb-0, which is used when a letter is hidden
         newP.classList.add('mb-0');
+
+        //adds the newP variable to the newDiv variable
         newDiv.appendChild(newP);
 
-        //reveals white space automatically
+        //Checks if current letter is a space
         if (newP.textContent === ' ') {
+
+          //Reveals white space. revealed letters have a class of .border-0
           newDiv.classList.add('border-0');
         } else {
+
+          //hidden letters have a class of d-none
           newP.classList.add('d-none');  
         }
 
+        //each letter gets a class of letter-content. the class of mb-0 is used to remove the border, which reveals a letter
         newDiv.classList.add('letter-content');
+
+        //appends the newly created div for each letter 
         wordContainerDiv.appendChild(newDiv);
       }
     },
@@ -66,13 +98,24 @@ window.onload = function() {
 
     //Revealed letters have a class of border-0. Checks for a win by seeing if all letters have a class of border-0
     checkWinLoss: function(letter) {
-      var winLossCounterChildren = document.getElementById('win-loss-counter').childNodes;  
+
+      //gets the win-loss-counter child elements
+      var winLossCounterChildren = document.getElementById('win-loss-counter').childNodes; 
+
+      //gets all elements in the DOM with a class of border-0. Will be used to check if the game is over.
       var revealedLetters = document.getElementsByClassName('border-0').length;
+
+      //total letters in the word.
       var totalLetters = this.wordInUse.length;
       
+
       if (revealedLetters === totalLetters) {
+
+        //game is over if all letters are revealed
         this.gameIsOver = true;
         game.wins++;
+
+        //
         winLossCounterChildren[1].textContent = `Wins: ${game.wins}`;
         triesLeftDiv.innerHTML = `<p class="alert alert-success w-50 mx-auto" role="alert">You Win!</p>`;
         audioElementWin.play();
@@ -82,7 +125,7 @@ window.onload = function() {
       if (!game.wordInUse.includes(letter)) {
         this.triesLeft--;
         if (game.triesLeft > 0) {
-          triesLeftDiv.innerHTML = `<p>Tries Left </p><p>${game.triesLeft}</p>`;
+          triesLeftDiv.innerHTML = `<p class="m-0">Tries Left </p><p class="m-0">${game.triesLeft}</p>`;
         } else {
           this.gameIsOver = true;
           game.losses++;
